@@ -1,0 +1,13 @@
+body{
+    background-color: rgb(241, 195, 152);
+}
+
+/* Carousel height */
+.carousel-inner {
+    height: 500px; /* Adjust the height as needed */
+}
+.carousel-inner img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* Ensure the images cover the entire area */
+}
