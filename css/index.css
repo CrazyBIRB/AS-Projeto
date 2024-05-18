@@ -1,4 +1,4 @@
-body{
+body {
     background-color: rgb(241, 195, 152);
 }
 
@@ -6,8 +6,28 @@ body{
 .carousel-inner {
     height: 500px; /* Adjust the height as needed */
 }
+
 .carousel-inner img {
     height: 100%;
     width: 100%;
     object-fit: cover; /* Ensure the images cover the entire area */
+}
+
+/* Additional space before About section */
+#about {
+    margin-top: 100px; /* Adjust this value as needed for more spacing */
+}
+
+/* Customize the card shadow */
+.shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adjust the shadow as needed */
+    
+}
+
+/* Adjust the shadow and background color for the cards */
+.card {
+    background-color: rgb(237, 156, 80); /* Adjust the opacity as needed */
+    border-radius: 15px; /* Add some border radius for a softer look */
+    border: none; /* Remove the border */
+    box-shadow: 0px 0px 16px rgba(237, 156, 80, 1.0); /* Apply the shadow */
 }
