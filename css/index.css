@@ -13,16 +13,14 @@ body {
     border-radius: 50px;
 }
 
-
 /* Additional space before About section */
-#about {
+#about, #services {
     margin-top: 100px; /* Adjust this value as needed for more spacing */
 }
 
 /* Customize the card shadow */
 .shadow {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adjust the shadow as needed */
-    
 }
 
 /* Adjust the shadow and background color for the cards */
@@ -59,6 +57,7 @@ body {
     color: white;
     font-size: 20px;
     font-weight: bold;
+    pointer-events: none; /* Make text non-interactable */
 }
 
 .image-container:hover img {
@@ -74,3 +73,49 @@ html {
     height: 30vh; /* Adjust this value based on your layout */
 }
 
+/* Ensure all service cards are the same height */
+/* Hover effect for service cards */
+.service-card {
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Change the description text color to white on hover */
+.service-card:hover .card-text {
+    color: white !important;
+    transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+/* Center the card titles and make them stand out */
+#services .card-title {
+    text-align: center;
+    font-size: 1.5rem; /* Increase the font size */
+    font-weight: bold; /* Make the text bold */
+    margin-bottom: 1rem; /* Add some margin below the title */
+    color: #000; /* Ensure title remains black */
+}
+
+/* Ensure the card text is centered as well */
+#services .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Optional: Adjust initial text color for better contrast */
+#services .card-text {
+    color: #555; /* Adjust the text color for better readability */
+    transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+/* Make the card titles and texts in the services section non-interactable */
+#services .card-title, #services .card-text {
+    pointer-events: none;
+}
