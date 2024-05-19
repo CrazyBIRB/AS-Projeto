@@ -35,7 +35,7 @@ body {
 
 .rounded-navbar {
     border-radius: 10px; /* Adjust the value to make the corners as round as you want */
-    margin: 15px; /* This will ensure the navbar does not touch the sides */
+    margin: 10px; /* This will ensure the navbar does not touch the sides */
     padding: 10px; /* Optional: Add some padding inside the navbar */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for better appearance */
 }
