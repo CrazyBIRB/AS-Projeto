@@ -3,10 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Page</title>
+    <title>HotelPets</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/user.css">
 </head>
 <body>
-    
+    <div class="mt-2"></div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top rounded-navbar">
+        <a class="navbar-brand" href="#">HotelPets</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Serviços</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contato</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid main-content">
+        <div class="row mt-4">
+            <!-- Main Content -->
+            <main role="main" class="d-flex flex-wrap justify-content-center align-items-center">
+                <a href="#galeria" class="card">
+                    <img src="../images/galeria.jpg" class="card-img-top" alt="Galeria">
+                    <div class="card-body">
+                        Galeria
+                    </div>
+                </a>
+                <a href="#reservas" class="card">
+                    <img src="../images/reserva.jpg" class="card-img-top" alt="Reservas">
+                    <div class="card-body">
+                        Reservas
+                    </div>
+                </a>
+                <a href="#camaras" class="card">
+                    <img src="../images/camaras.jpg" class="card-img-top" alt="Câmaras">
+                    <div class="card-body">
+                        Câmaras
+                    </div>
+                </a>
+            </main>
+            <!-- Profile Settings -->
+            <div class="profile-settings">
+                <div class="profile-picture rounded-circle">
+                    <img src="../images/profilepicture.jpg" alt="Profile Picture">
+                </div>
+                <div class="settings">
+                    <br>
+                    <ul>
+                        <li><a href="#">Mudar Password</a></li>
+                        <br>
+                        <li><a href="#">Mudar Email</a></li>
+                        <br>
+                        <li><a href="#">Mudar Foto de Perfil</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
