@@ -131,8 +131,8 @@ button:hover {
 
 .navbar {
     margin-bottom: 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px; /* Optional: Add some padding inside the navbar */
+    box-shadow: 0 8px 4px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for better appearance */
 }
 
 
