@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(241, 195, 152);
+    background-color: #FBE9D0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -132,7 +132,7 @@ hr {
 }
 
 .section-box {
-    background-color: #b79a7c; /* Change the background color as desired */
+    background-color: #e1ae76; /* Change the background color as desired */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
