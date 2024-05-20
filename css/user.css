@@ -138,3 +138,19 @@ hr {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilo padrão para os botões */
+ .btn-primary, .btn-success {
+    background-color: black; /* Cor de fundo preta */
+    color: white;            /* Cor do texto branca */
+    border: none;            /* Sem borda */
+    padding: 10px 20px;      /* Espaçamento interno */
+    cursor: pointer;         /* Cursor de ponteiro ao passar o mouse */
+    transition: background-color 0.3s ease; /* Transição suave para a mudança de cor */
+}
+
+/* Estilo ao passar o mouse */
+.btn-primary:hover, .btn-success:hover {
+    background-color: grey;  /* Cor de fundo cinza */
+}
+
+
