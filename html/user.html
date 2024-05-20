@@ -36,32 +36,12 @@
 
     <div class="container-fluid main-content">
         <div class="row mt-4">
-            <!-- Main Content -->
-            <main role="main" class="d-flex flex-wrap justify-content-center align-items-center">
-                <a href="#galeria" class="card">
-                    <img src="../images/galeria.jpg" class="card-img-top" alt="Galeria">
-                    <div class="card-body">
-                        Galeria
-                    </div>
-                </a>
-                <a href="#reservas" class="card">
-                    <img src="../images/reserva.jpg" class="card-img-top" alt="Reservas">
-                    <div class="card-body">
-                        Reservas
-                    </div>
-                </a>
-                <a href="#camaras" class="card">
-                    <img src="../images/camaras.jpg" class="card-img-top" alt="Câmaras">
-                    <div class="card-body">
-                        Câmaras
-                    </div>
-                </a>
-            </main>
             <!-- Profile Settings -->
-            <div class="profile-settings">
-                <div class="profile-picture rounded-circle">
+            <div class="col-md-6 profile-settings">
+                <div class="text-center profile-picture rounded-circle">
                     <img src="../images/profilepicture.jpg" alt="Profile Picture">
                 </div>
+                
                 <div class="settings">
                     <br>
                     <ul>
@@ -72,8 +52,36 @@
                         <li><a href="#">Mudar Foto de Perfil</a></li>
                     </ul>
                 </div>
+                <a href="#camaras" class="card" style="margin-top: 100px;">
+                    <img src="../images/camaras.jpg" class="card-img-top" alt="Câmaras">
+                    <div class="card-body">
+                        Câmaras
+                    </div>
+                </a>
+                
+                
             </div>
 
+            <!-- Main Content -->
+            <div class="col-md-6">
+                <h3 style="font-weight: bold;">Histórico de reservas</h3>
+                <hr>
+                <div class="content-section mb-4" style="text-align: center;">
+                    <div class="section-box">
+                        <p style="font-size: 18px;">Ainda não fez nenhuma reserva</p>
+                        <button class="btn btn-primary mt-3">Procurar alojamentos</button>
+                    </div>
+                </div>
+                <h3 style="font-weight: bold; margin-top: 250px;">Fotografias</h3>
+                <hr>
+                <div class="content-section" style="text-align: center;">
+                    <div class="section-box">
+                    <p style="font-size: 18px;">Ainda não tem nenhuma fotografia</p>
+                </div>
+                </div>
+            </div>
+            
+            
             
         </div>
     </div>
