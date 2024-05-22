@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loja Hotel Pets</title>
+ 
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+ <link rel="stylesheet" type="text/css" href="../css/products.css" />
+<script src="../js/store.js" defer></script>
+</head>
+<body>
+<!-- Botão para abrir o sidebar -->
+<button id="openSidebarBtn">Carrinho</button>
+
+
+<div id="sidebar">
+  <a href="javascript:void(0)" id="closeSidebarBtn">&times;</a> 
+  <div class="sidebar-content">
+    <ul id="cart-items">
+      <!-- Cart items will be dynamically added here -->
+  </ul>
+  <p>Total: <span id="cart-total">0.00€</span></p>
+  <button class="finalizarCompra">Finalizar Compra</button>
+  </div>
+</div>
+
+<!-- Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top rounded-navbar">
+  <a class="navbar-brand" href="#">HotelPets</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#services">Serviços</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#about">Sobre</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#contact">Contato</a>
+          </li>
+      </ul>
+      <ul class="navbar-nav">
+          <li class="nav-item">
+              <a class="nav-link" href="login.html">
+                  <i class="fas fa-user"></i>
+                  Login     
+              </a>
+          </li>
+      </ul>
+  </div>
+</nav>
+
+
+<div class="p_container">
+  <header>
+    <h1>Loja do Hotel Pets</h1>
+  </header>
+</div>
+
+<div class="container">
+  <section class="product">
+    <div class="product-details">
+      <img src="../images/caminha.jpg" alt="Caminha de Gato">
+      <div>
+        <h2>Caminha Aconchegante para Gatos</h2>
+        <p class="price">29.99 €</p>
+        <button class="btn">Comprar</button>
+      </div>
+    </div>
+  </section>
+  
+  <section class="product">
+    <div class="product-details">
+      <img src="../images/Brinquedos-Interativos-Para-Cães.jpg" alt="Brinquedo para Cães">
+      <div>
+        <h2>Brinquedo Interativo para Cães</h2>
+        <p class="price">14.99 €</p>
+        <button class="btn">Comprar</button>
+      </div>
+    </div>
+  </section>
+  
+  <section class="product">
+    <div class="product-details">
+      <img src="../images/arranhador_vertical_para_gatos.jpg" alt="Arranhador para Gatos">
+      <div>
+        <h2>Arranhador Vertical para Gatos</h2>
+        <p class="price">39.99 €</p>
+        <button class="btn">Comprar</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="product">
+    <div class="product-details">
+      <img src="../images/roupa_para_caes.jpg" alt="Roupa para cães pequenos">
+      <div>
+        <h2>Roupa para cães de pequeno porte</h2>
+        <p class="price">19.99 €</p>
+        <button class="btn">Comprar</button>
+      </div>
+    </div>
+  </section>
+  
+  <section class="product">
+    <div class="product-details">
+      <img src="../images/osso_para_caes.jpg" alt="Osso para cães">
+      <div>
+        <h2>Osso para cães</h2>
+        <p class="price">9.99 €</p>
+        <button class="btn">Comprar</button>
+      </div>
+    </div>
+  </section>
+</div>
+  <!-- Repetir a estrutura acima para cada produto -->
+  
+
+
+</body>
+</html>
