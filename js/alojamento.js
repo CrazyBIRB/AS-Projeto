@@ -1,31 +1,15 @@
-function adicionarAoCarrinho() {
-    const tipoAlojamento = document.getElementById('tipo-alojamento').value;
-    const dataInicio = document.getElementById('data-inicio').value;
-    const dataFim = document.getElementById('data-fim').value;
+document.getElementById('searchBox').addEventListener('input', function() {
+    var searchQuery = this.value.toLowerCase();
+    var hotelItems = document.querySelectorAll('.hotel-item');
 
-    if (!dataInicio || !dataFim) {
-        alert('Por favor, selecione as datas de início e fim.');
-        return;
-    }
+    hotelItems.forEach(function(item) {
+        var hotelName = item.getAttribute('data-name').toLowerCase();
+        var hotelLocation = item.getAttribute('data-location').toLowerCase();
 
-    const itemCarrinho = `Alojamento: ${tipoAlojamento}, De: ${dataInicio}, Até: ${dataFim}`;
-    const listaCarrinho = document.getElementById('lista-carrinho');
-    
-    const li = document.createElement('li');
-    li.className = "list-group-item";
-    li.textContent = itemCarrinho;
-    listaCarrinho.appendChild(li);
-
-    alert('Item adicionado ao carrinho!');
-}
-
-function finalizarCompra() {
-    const listaCarrinho = document.getElementById('lista-carrinho');
-    if (listaCarrinho.children.length === 0) {
-        alert('Seu carrinho está vazio.');
-        return;
-    }
-
-    alert('Compra finalizada com sucesso!');
-    listaCarrinho.innerHTML = ''; // Limpa o carrinho após finalizar a compra
-}
+        if (hotelName.includes(searchQuery) || hotelLocation.includes(searchQuery)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});

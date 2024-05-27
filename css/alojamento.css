@@ -1,142 +1,40 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: rgb(241, 195, 152);
-    color: #333;
-    line-height: 1.6;
-    text-align: center;
+    background-color: #0c6580b9;
 }
 
-h1, h2 {
-    color: #333;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-label {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: bold;
-    text-align: center;
-}
-
-input, select, button {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0 15px;
-    border: 1px solid #ced4da;
+.hotel-item {
+    background-size: cover;
+    background-position: center;
     border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 16px;
-    text-align: center;
-}
-
-input:focus, select:focus, button:focus {
-    outline: none;
-    border-color: #191a1b;
-    box-shadow: 0 0 5px rgba(16, 17, 19, 0.5);
-}
-
-button {
-    cursor: pointer;
-    background-color: #0f1411;
     color: white;
+    overflow: hidden;
+    height: 200px;
+    position: relative;
+}
+
+.hotel-item .card {
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #e0e021;
-}
-
-#carrinho {
-    margin-top: 30px;
-    background-color: #fff;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 100px;
-    right: 20px;
-    width: 300px;
-}
-
-#lista-carrinho {
-    list-style-type: none;
-    padding: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     margin: 0;
 }
 
-#lista-carrinho li {
-    padding: 10px;
-    border-bottom: 1px solid #ced4da;
-}
-
-#lista-carrinho li:last-child {
-    border-bottom: none;
-}
-
-#lista-carrinho li span {
-    display: block;
-    font-size: 14px;
-    color: #6c757d;
-}
-
-.container {
-    max-width: 750px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.header, .footer {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.footer {
-    font-size: 14px;
-    color: #6c757d;
-}
-
-.search-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
-}
-
-.search-bar {
+.hotel-item .card-body {
+    position: relative;
+    z-index: 1;
     width: 100%;
-    max-width: 600px;
-    padding: 10px;
-    font-size: 16px;
-}
-
-.form-container {
-    display: flex;
-    justify-content: center;
-}
-
-.form-container .col-md-8 {
-    margin-right: 20px;
     text-align: center;
 }
 
-.navbar {
-    margin-bottom: 20px;
-    padding: 15px; /* Optional: Add some padding inside the navbar */
-    box-shadow: 0 8px 4px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for better appearance */
-}
-
-/* Estilo padrão para os botões */
- .btn-primary, .btn-success {
+.btn-primary, .btn-success {
     background-color: black; /* Cor de fundo preta */
     color: white;            /* Cor do texto branca */
     border: none;            /* Sem borda */
@@ -149,6 +47,4 @@ button:hover {
 .btn-primary:hover, .btn-success:hover {
     background-color: grey;  /* Cor de fundo cinza */
 }
-
-
-
+    
