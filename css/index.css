@@ -1,5 +1,5 @@
 body {
-    background-color: #FBE9D0;
+    background-color: #0c6580b9;
 }
 
 /* Carousel height */
@@ -33,8 +33,6 @@ body {
 }
 
 .rounded-navbar {
-    border-radius: 0px; /* Adjust the value to make the corners as round as you want */
-    margin: 0px; /* This will ensure the navbar does not touch the sides */
     padding: 15px; /* Optional: Add some padding inside the navbar */
     box-shadow: 0 8px 4px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for better appearance */
 }
