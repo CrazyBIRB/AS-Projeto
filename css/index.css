@@ -1,63 +1,76 @@
 body {
-    background-color: #0c6580b9;
+    background-color: #ffffff;
 }
 
 /* Carousel height */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel {
+    width: 100%;
+    
+}
+
+rounded-navbar {
+    padding-top: 1rem; /* Ajuste este valor conforme necessário */
+    padding-bottom: 1rem; /* Ajuste este valor conforme necessário */
+    height: 30vh; /* Ajuste a altura conforme necessário */
+    border-radius: 0 0 15px 15px; /* Rounded bottom corners */
+}
+
+.rounded-navbar .navbar-brand {
+    font-size: 2.5rem; /* Aumente o tamanho do texto da marca, se necessário */
+}
+
+.rounded-navbar .nav-link {
+    font-size: 1.2rem; /* Aumente o tamanho do texto dos links, se necessário */
+}
+
 .carousel-inner {
-    height: 500px; /* Adjust the height as needed */
+    width: 100%;
+    overflow: hidden;
 }
 
-.carousel-inner img {
-    height: 500px; /* Adjust the height to fit your carousel */
-    width: 650px; /* Let the width adjust automatically to maintain aspect ratio */
-    border-radius: 50px;
-    object-fit: cover;
+.carousel-item {
+    width: 100%;
 }
 
-/* Additional space before About section */
-#about, #services {
-    margin-top: 100px; /* Adjust this value as needed for more spacing */
-}
-
-/* Customize the card shadow */
-.shadow {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adjust the shadow as needed */
-}
-
-/* Adjust the shadow and background color for the cards */
-.card {
-    background-color: rgb(237, 156, 80); /* Adjust the opacity as needed */
-    border-radius: 15px; /* Add some border radius for a softer look */
-    border: none; /* Remove the border */
-    box-shadow: 0px 0px 16px rgba(237, 156, 80, 1.0); /* Apply the shadow */
-}
-
-.rounded-navbar {
-    padding: 15px; /* Optional: Add some padding inside the navbar */
-    box-shadow: 0 8px 4px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for better appearance */
+.carousel-item img {
+    width: 100%;
+    height: auto; /* Para manter a proporção da imagem */
 }
 
 .overlay {
     position: absolute;
     top: 0;
+    bottom: 0;
     left: 0;
-    width: 100%;
+    right: 0;
     height: 100%;
+    width: 100%;
     opacity: 0;
-    background-color: rgb(255,255,255,0.5);
-    transition: opacity 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
+    transition: .5s ease;
+    background-color: rgba(107, 69, 69, 0.5); /* Ajuste a cor e opacidade conforme necessário */
 }
 
-.text {
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-    font-weight: bold;
-    pointer-events: none; /* Make text non-interactable */
+.carousel-item:hover .overlay {
+    opacity: 1;
 }
+
+.overlay .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
 
 .image-container:hover img {
     filter: blur(50px); /* Apply blur effect on hover */
@@ -118,3 +131,4 @@ html {
 #services .card-title, #services .card-text {
     pointer-events: none;
 }
+
