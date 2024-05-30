@@ -20,6 +20,12 @@ def init_sqlite_db():
 init_sqlite_db()
 
 
+# <------! Rota da Página Principal !------>
+@app.route('/')
+def home():
+    username = session.get('username')
+    return render_template('index.html', username=username)
+
 # <------! Rota de registo !------>
 @app.route('/register/', methods=['GET', 'POST'])
 def register():
@@ -58,15 +64,6 @@ def login():
                 flash('Invalid credentials. Please try again.', 'danger')
     
     return render_template('login.html')
-
-
-# <------! Rota da Página Principal !------>
-@app.route('/')
-def home():
-    if 'logged_in' in session:
-        return render_template('index.html', username=session['username'])
-    else:
-        return redirect(url_for('login'))
 
 
 @app.route('/store')
