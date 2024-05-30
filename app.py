@@ -81,12 +81,12 @@ def alojamento():
 
 @app.route('/spa_salao')
 def spa_salao():
-    return render_template('spa_salao.html')
+    return render_template('spa-salao.html')
 
 
 @app.route('/pet_sitting')
 def pet_sitting():
-    return render_template('pet_sitting.html')
+    return render_template('pet-sitting.html')
 
 @app.route('/user')
 def user():
