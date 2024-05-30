@@ -6,7 +6,7 @@
     <title>HotelPets</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}">
 </head>
 <body>
     <!-- Navbar -->
@@ -18,16 +18,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="../html/index-registered.html">Home</a>
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../html/index-registered.html#services">Serviços</a>
+                    <a class="nav-link" href="{{ url_for('home') }}#services">Serviços</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../html/index-registered.html#about">Sobre</a>
+                    <a class="nav-link" href="{{ url_for('home') }}#about">Sobre</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../html/index-registered.html#contact">Contato</a>
+                    <a class="nav-link" href="{{ url_for('home') }}#contact">Contato</a>
                 </li>
             </ul>
         </div>
@@ -38,7 +38,7 @@
             <!-- Profile Settings -->
             <div class="col-md-6 profile-settings">
                 <div class="text-center profile-picture rounded-circle">
-                    <img src="../images/profilepicture.jpg" alt="Profile Picture">
+                    <img src="{{ url_for('static', filename='images/profilepicture.jpg') }}" alt="Profile Picture">
                 </div>
                 
                 <div class="settings">
@@ -52,13 +52,11 @@
                     </ul>
                 </div>
                 <a href="#camaras" class="card" style="margin-top: 100px;">
-                    <img src="../images/camaras.jpg" class="card-img-top" alt="Câmaras">
+                    <img src="{{ url_for('static', filename='images/camaras.jpg') }}" class="card-img-top" alt="Câmaras">
                     <div class="card-body">
                         Câmaras
                     </div>
                 </a>
-                
-                
             </div>
 
             <!-- Main Content -->
@@ -68,20 +66,17 @@
                 <div class="content-section mb-4" style="text-align: center;">
                     <div class="section-box">
                         <p style="font-size: 18px;">Ainda não fez nenhuma reserva</p>
-                        <button class="btn btn-primary mt-3" onclick="window.location.href='alojamento.html'">Procurar alojamentos</button>
+                        <button class="btn btn-primary mt-3" onclick="window.location.href='{{ url_for('alojamento') }}'">Procurar alojamentos</button>
                     </div>
                 </div>
                 <h3 style="font-weight: bold; margin-top: 250px;">Fotografias</h3>
                 <hr>
                 <div class="content-section" style="text-align: center;">
                     <div class="section-box">
-                    <p style="font-size: 18px;">Ainda não tem nenhuma fotografia</p>
-                </div>
+                        <p style="font-size: 18px;">Ainda não tem nenhuma fotografia</p>
+                    </div>
                 </div>
             </div>
-            
-            
-            
         </div>
     </div>
 

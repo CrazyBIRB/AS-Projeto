@@ -8,28 +8,28 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/alojamento.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/alojamento.css') }}">
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">HotelPets</a>
+        <a class="navbar-brand" href="{{ url_for('home') }}">HotelPets</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="../html/index-registered.html">Home</a>
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../html/index-registered.html#services">Serviços</a>
+                    <a class="nav-link" href="{{ url_for('home') }}#services">Serviços</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../html/index-registered.html#about">Sobre</a>
+                    <a class="nav-link" href="{{ url_for('home') }}#about">Sobre</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../html/index-registered.html#contact">Contato</a>
+                    <a class="nav-link" href="{{ url_for('home') }}#contact">Contato</a>
                 </li>
             </ul>
         </div>
@@ -50,7 +50,7 @@
     <div class="container mt-4" id="hotelsList">
         <div class="row">
             <div class="col-md-4 mb-4">
-                <div class="hotel-item" data-name="Petotel" data-location="Aveiro" style="background-image: url('../images/petotel.jpg');">
+                <div class="hotel-item" data-name="Petotel" data-location="Aveiro" style="background-image: url('{{ url_for('static', filename='images/petotel.jpg') }}');">
                     <div class="card">
                         <div class="card-body text-white">
                             <h5 class="card-title">Petotel</h5>
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="hotel-item" data-name="Petotel 2" data-location="Esgueira" style="background-image: url('../images/hotel2.jpg');">
+                <div class="hotel-item" data-name="Petotel 2" data-location="Esgueira" style="background-image: url('{{ url_for('static', filename='images/hotel2.jpg') }}');">
                     <div class="card">
                         <div class="card-body text-white">
                             <h5 class="card-title">Petotel 2</h5>
@@ -73,7 +73,7 @@
             </div>
             <!-- Add more hotels here -->
             <div class="col-md-4 mb-4">
-                <div class="hotel-item" data-name="Animal House" data-location="Lisboa" style="background-image: url('../images/hotel3.jpg');">
+                <div class="hotel-item" data-name="Animal House" data-location="Lisboa" style="background-image: url('{{ url_for('static', filename='images/hotel3.jpg') }}');">
                     <div class="card">
                         <div class="card-body text-white">
                             <h5 class="card-title">Animal House</h5>
@@ -84,7 +84,7 @@
                 </div>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="hotel-item" data-name="Pet Paradise" data-location="Porto" style="background-image: url('../images/hotel4.jpg');">
+                <div class="hotel-item" data-name="Pet Paradise" data-location="Porto" style="background-image: url('{{ url_for('static', filename='images/hotel4.jpg') }}');">
                     <div class="card">
                         <div class="card-body text-white">
                             <h5 class="card-title">Pet Paradise</h5>
@@ -102,6 +102,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../js/alojamento.js"></script>
+    <script src="{{ url_for('static', filename='js/alojamento.js') }}"></script>
 </body>
 </html>
