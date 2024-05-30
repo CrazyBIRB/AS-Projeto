@@ -1,11 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pet Sitting</title>
+    <link rel="stylesheet" href="../static/css/pet-sitting.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark sticky-top rounded-navbar">
+        <a class="navbar-brand" href="{{ url_for('home') }}">HotelPets</a>
+         
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNav">
+             <ul class="navbar-nav">
+                 <li class="nav-item">
+                     <a class="nav-link" href="#home">Home</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="#services">Serviços</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="#about">Sobre</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="#contact">Contato</a>
+                 </li>
+             </ul>
+             <ul class="navbar-nav ml-auto">
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{ url_for('login') }}">
+                         <i class="fas fa-user"></i>
+                         Login     
+                     </a>
+                 </li>
+             </ul>
+         </div>
+     </nav>
+ 
+     <div class="mt-5"></div>
     
+    <main class="container mt-5">
+        <div class="row">
+            <aside class="filters col-lg-3">
+                <h2>Filtros</h2>
+                <form id="filterForm">
+                    <div class="filter-group">
+                        <h3>Cidade</h3>
+                        <label><input type="checkbox" name="city" value="Aveiro"> Aveiro</label><br>
+                        <label><input type="checkbox" name="city" value="Coimbra"> Coimbra</label><br>
+                        <label><input type="checkbox" name="city" value="Porto"> Porto</label>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h3>Sexo</h3>
+                        <label><input type="radio" name="gender" value="male"> Masculino</label><br>
+                        <label><input type="radio" name="gender" value="female"> Feminino</label>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h3>Experiência</h3>
+                        <label><input type="radio" name="experience" value="1-2"> 1-2 anos</label><br>
+                        <label><input type="radio" name="experience" value="3-5"> 3-5 anos</label><br>
+                        <label><input type="radio" name="experience" value="5+"> 5+ anos</label>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h3>Avaliação</h3>
+                        <label><input type="radio" name="rating" value="4-5"> 4 estrelas ou mais</label><br>
+                        <label><input type="radio" name="rating" value="3-4"> 3 estrelas ou mais</label><br>
+                        <label><input type="radio" name="rating" value="2-3"> 2 estrelas ou mais</label>
+                    </div>
+                    
+                    <button type="button" class="btn btn-primary" onclick="applyFilters()">Aplicar Filtros</button>
+                </form>
+            </aside>
+            
+            <section class="sitter-gallery col-lg-9">
+                <h2>Pet Sitters Disponíveis</h2>
+                <div class="row" id="sitterList">
+                    <!-- Pet sitters -->
+                    <div class="col-md-4 sitter-item" data-city="Aveiro" data-gender="male" data-experience="5" data-rating="4.8">
+                        <img src="../static/images/joao.png" alt="João Silva" class="img-fluid rounded-circle">
+                        <h3>João Silva</h3>
+                        <p>Cidade: Aveiro</p>
+                        <p>Experiência: 5 anos</p>
+                        <p>4.8 estrelas</p>
+                    </div>
+                    <div class="col-md-4 sitter-item" data-city="Coimbra" data-gender="female" data-experience="3" data-rating="4.5">
+                        <img src="../static/images/maria2.png" alt="Maria Souza" class="img-fluid rounded-circle">
+                        <h3>Maria Sousa</h3>
+                        <p>Cidade: Coimbra</p>
+                        <p>Experiência: 3 anos</p>
+                        <p>4.5 estrelas</p>
+                    </div>
+                    <div class="col-md-4 sitter-item" data-city="Porto" data-gender="male" data-experience="2" data-rating="4.2">
+                        <img src="../static/images/marco.png" alt="Pedro Alvares" class="img-fluid rounded-circle">
+                        <h3>Pedro Alvares</h3>
+                        <p>Cidade: Porto</p>
+                        <p>Experiência: 2 anos</p>
+                        <p>4.2 estrelas</p>
+                    </div>
+                    <div class="col-md-4 sitter-item" data-city="Aveiro" data-gender="female" data-experience="4" data-rating="4.7">
+                        <img src="../static/images/clara.png" alt="Ana Clara" class="img-fluid rounded-circle">
+                        <h3>Ana Clara</h3>
+                        <p>Cidade: Aveiro</p>
+                        <p>Experiência: 4 anos</p>
+                        <p>4.7 estrelas</p>
+                    </div>
+                    <div class="col-md-4 sitter-item" data-city="Coimbra" data-gender="male" data-experience="3" data-rating="4.4">
+                        <img src="../static/images/pedro.png" alt="Lucas Pereira" class="img-fluid rounded-circle">
+                        <h3>Lucas Pereira</h3>
+                        <p>Cidade: Coimbra</p>
+                        <p>Experiência: 3 anos</p>
+                        <p>4.4 estrelas</p>
+                    </div>
+                    <div class="col-md-4 sitter-item" data-city="Porto" data-gender="female" data-experience="1" data-rating="4.1">
+                        <img src="../static/images/lara.png" alt="Fernanda Lima" class="img-fluid rounded-circle">
+                        <h3>Fernanda Lima</h3>
+                        <p>Cidade: Porto</p>
+                        <p>Experiência: 1 ano</p>
+                        <p>4.1 estrelas</p>
+                    </div>
+                    <div class="col-md-4 sitter-item" data-city="Aveiro" data-gender="male" data-experience="5" data-rating="4.9">
+                        <img src="../static/images/steve2.png" alt="Carlos Alberto" class="img-fluid rounded-circle">
+                        <h3>Carlos Alberto</h3>
+                        <p>Cidade: Aveiro</p>
+                        <p>Experiência: 5 anos</p>
+                        <p>4.9 estrelas</p>
+                    </div>
+                    <div class="col-md-4 sitter-item" data-city="Coimbra" data-gender="female" data-experience="2" data-rating="4.3">
+                        <img src="../static/images/lili.png" alt="Juliana Dias" class="img-fluid rounded-circle">
+                        <h3>Juliana Dias</h3>
+                        <p>Cidade: Coimbra</p>
+                        <p>Experiência: 2 anos</p>
+                        <p>4.3 estrelas</p>
+                    </div>
+                    <div class="col-md-4 sitter-item" data-city="Porto" data-gender="male" data-experience="4" data-rating="4.6">
+                        <img src="../static/images/rafael.png" alt="Paulo Ricardo" class="img-fluid rounded-circle">
+                        <h3>Paulo Ricardo</h3>
+                        <p>Cidade: Porto</p>
+                        <p>Experiência: 4 anos</p>
+                        <p>4.6 estrelas</p>
+                    </div>
+                    <div class="col-md-4 sitter-item" data-city="São Aveiro" data-gender="female" data-experience="3" data-rating="4.4">
+                        <img src="../static/images/so.png" alt="Camila Silva" class="img-fluid rounded-circle">
+                        <h3>Camila Silva</h3>
+                        <p>Cidade: Aveiro</p>
+                        <p>Experiência: 3 anos</p>
+                        <p>4.4 estrelas</p>
+                    </div>
+                    <div class="col-md-4 sitter-item" data-city="Coimbra" data-gender="male" data-experience="1" data-rating="4.0">
+                        <img src="../static/images/ele.png" alt="Rafael Costa" class="img-fluid rounded-circle">
+                        <h3>Rafael Costa</h3>
+                        <p>Cidade: Coimbra</p>
+                        <p>Experiência: 1 ano</p>
+                        <p>4.0 estrelas</p>
+                    </div>
+                    <div class="col-md-4 sitter-item" data-city="Porto" data-gender="female" data-experience="2" data-rating="4.2">
+                        <img src="../static/images/joana.png" alt="Larissa Martins" class="img-fluid rounded-circle">
+                        <h3>Larissa Martins</h3>
+                        <p>Cidade: Porto</p>
+                        <p>Experiência: 2 anos</p>
+                        <p>4.2 estrelas</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; 2024 HotelPets. Todos os direitos reservados.
+    </footer>
+   
+    
+
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS for Filters -->
+    <script src="../static/js/pet-sitting.js"></script>
 </body>
 </html>
