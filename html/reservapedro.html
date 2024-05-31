@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Pet Sitter</title>
+    <link rel="stylesheet" href="../static/css/pet-sitting.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">HotelPets</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#services">Serviços</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#about">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#contact">Contato</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">
+                        <i class="fas fa-user"></i>
+                        Login     
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5 pt-5">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img src="../static/images/senhor.png" alt="Pedro Alvares" class="img-fluid rounded-circle mb-3">
+                <h2>Pedro Alvares</h2>
+                <p><i class="fas fa-map-marker-alt"></i> Porto</p>
+                <p><strong>Experiência:</strong> 2 anos</p>
+                <p><strong>Avaliação:</strong> 4.2 estrelas</p>
+                <p><i class="fas fa-phone"></i> 934586761</p>
+            </div>
+            <div class="col-md-8">
+                <h3>Sobre Pedro</h3>
+                <p>Pedro é um pet sitter experiente e dedicado que ama animais. Com 5 anos de experiência, ele cuidou de diversos tipos de animais de estimação, garantindo sempre a satisfação dos donos e o bem-estar dos animais.</p>
+                <hr>
+                <h3>Comentários</h3>
+                <div id="comments-section">
+                    <div class="comment">
+                        <p><strong>Maria Pereira</strong> <span class="text-muted">- 2 dias atrás</span></p>
+                        <p>O Pedro foi incrível com o meu cão! Ele é muito atencioso e profissional. Recomendo!</p>
+                    </div>
+                    <div class="comment">
+                        <p><strong>Carlos Alberto</strong> <span class="text-muted">- 1 semana atrás</span></p>
+                        <p>Excelente serviço! O meu gato adorou o Pedro. Ele realmente sabe como lidar com animais.</p>
+                    </div>
+                    <div class="comment">
+                        <p><strong>Fernanda Lima</strong> <span class="text-muted">- 2 semanas atrás</span></p>
+                        <p>O Pedro cuidou muito bem do meu coelho enquanto eu estava em viagem. Muito responsável e cuidadoso.</p>
+                    </div>
+                </div>
+                <hr>
+                <h3>Adicione um comentário</h3>
+                <form id="comment-form">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Comentário</label>
+                        <textarea id="comment" class="form-control" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+                <hr>
+                <h3>Reserva de Pet Sitter</h3>
+                <form id="reservation-form">
+                    <div class="form-group">
+                        <label for="owner-name">Nome do Dono</label>
+                        <input type="text" id="owner-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-name">Nome do Animal</label>
+                        <input type="text" id="pet-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="start-date">Data de Início</label>
+                        <input type="date" id="start-date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="end-date">Data de Término</label>
+                        <input type="date" id="end-date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="additional-info">Informações Adicionais</label>
+                        <textarea id="additional-info" class="form-control" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Reservar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        &copy; 2024 HotelPets. Todos os direitos reservados.
+    </footer>
+    
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        document.getElementById('comment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+            const commentsSection = document.getElementById('comments-section');
+
+            const newComment = document.createElement('div');
+            newComment.classList.add('comment');
+            newComment.innerHTML = `
+                <p><strong>${name}</strong> <span class="text-muted">- Agora</span></p>
+                <p>${comment}</p>
+            `;
+
+            commentsSection.appendChild(newComment);
+
+            // Clear form
+            document.getElementById('name').value = '';
+            document.getElementById('comment').value = '';
+        });
+
+        document.getElementById('reservation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const ownerName = document.getElementById('owner-name').value;
+            const petName = document.getElementById('pet-name').value;
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+            const additionalInfo = document.getElementById('additional-info').value;
+
+            alert(`Reserva feita com sucesso!\n\nNome do Dono: ${ownerName}\nNome do Pet: ${petName}\nData de Início: ${startDate}\nData de Término: ${endDate}\nInformações Adicionais: ${additionalInfo}`);
+
+            // Clear form
+            document.getElementById('owner-name').value = '';
+            document.getElementById('pet-name').value = '';
+            document.getElementById('start-date').value = '';
+            document.getElementById('end-date').value = '';
+            document.getElementById('additional-info').value = '';
+        });
+    </script>
+</body>
+</html>

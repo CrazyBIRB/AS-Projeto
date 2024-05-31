@@ -85,6 +85,44 @@ def spa_salao():
 def pet_sitting():
     return render_template('pet-sitting.html')
 
+@app.route('/reservajoao')
+def reservajoao():
+    return render_template('reservajoao.html')
+
+@app.route('/reservaana')
+def reservaana():
+    return render_template('reservaana.html')
+@app.route('/reservacamila')
+def reservacamila():
+    return render_template('reservacamila.html')
+@app.route('/reservacarlos')
+def reservacarlos():
+    return render_template('reservacarlos.html')
+@app.route('/reservafernanda')
+def reservafernanda():
+    return render_template('reservafernanda.html')
+@app.route('/reservajuliana')
+def reservajuliana():
+    return render_template('reservajuliana.html')
+@app.route('/reservalarissa')
+def reservalarissa():
+    return render_template('reservalarissa.html')
+@app.route('/reservalucas')
+def reservalucas():
+    return render_template('reservalucas.html')
+@app.route('/reservamaria')
+def reservamaria():
+    return render_template('reservamaria.html')
+@app.route('/reservapaulo')
+def reservapaulo():
+    return render_template('reservapaulo.html')
+@app.route('/reservapedro')
+def reservapedro():
+    return render_template('reservapedro.html')
+@app.route('/reservarafael')
+def reservarafael():
+    return render_template('reservarafael.html')
+
 @app.route('/user')
 def user():
     return render_template('user.html')
