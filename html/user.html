@@ -61,14 +61,31 @@
 
             <!-- Main Content -->
             <div class="col-md-6">
-                <h3 style="font-weight: bold;">Histórico de reservas</h3>
+                <h3 style="font-weight: bold;">Histórico de compras</h3>
                 <hr>
-                <div class="content-section mb-4" style="text-align: center;">
-                    <div class="section-box">
-                        <p style="font-size: 18px;">Ainda não fez nenhuma reserva</p>
-                        <button class="btn btn-primary mt-3" onclick="window.location.href='{{ url_for('alojamento') }}'">Procurar alojamentos</button>
+                {% if purchases %}
+                    <div class="purchase-list-container">
+                        <div class="purchase-list">
+                            {% for purchase in purchases %}
+                                <div class="purchase-item">
+                                    <img src="{{ purchase[3] }}" alt="{{ purchase[0] }}">
+                                    <div class="product-type">{{ purchase[2] }}</div>
+                                    <div class="product-details">
+                                        <div>{{ purchase[0] }}</div>
+                                        <div>{{ purchase[1] }} €</div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
+                {% else %}
+                    <div class="content-section mb-4" style="text-align: center;">
+                        <div class="section-box">
+                            <p style="font-size: 18px;">Ainda não fez nenhuma compra</p>
+                            <button class="btn btn-primary mt-3" onclick="window.location.href='{{ url_for('alojamento') }}'">Procurar produtos</button>
+                        </div>
+                    </div>
+                {% endif %}
                 <h3 style="font-weight: bold; margin-top: 250px;">Fotografias</h3>
                 <hr>
                 <div class="content-section" style="text-align: center;">

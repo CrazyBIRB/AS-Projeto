@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -14,7 +14,15 @@ def init_sqlite_db():
     print("Opened database successfully")
 
     conn.execute('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)')
-    print("Table created successfully")
+    conn.execute('''CREATE TABLE IF NOT EXISTS purchases (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    user_id INTEGER,
+                    product_name TEXT,
+                    product_price REAL,
+                    product_type TEXT,
+                    product_image TEXT,
+                    FOREIGN KEY(user_id) REFERENCES users(id))''')
+    print("Tables created successfully")
     conn.close()
 
 init_sqlite_db()
@@ -68,7 +76,30 @@ def login():
 
 @app.route('/store')
 def store():
-    return render_template('store.html')
+    username = session.get('username')
+    return render_template('store.html', username=username)
+
+
+@app.route('/finalizar_compra', methods=['POST'])
+def finalizar_compra():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+
+    data = request.get_json()
+    items = data['items']
+
+    username = session['username']
+    with sqlite3.connect('database.db') as conn:
+        cur = conn.cursor()
+        cur.execute("SELECT id FROM users WHERE username = ?", (username,))
+        user_id = cur.fetchone()[0]
+
+        for item in items:
+            cur.execute("INSERT INTO purchases (user_id, product_name, product_price, product_type, product_image) VALUES (?, ?, ?, ?, ?)",
+                        (user_id, item['name'], item['price'], item['type'], item['image']))
+        conn.commit()
+
+    return '', 200
 
 
 @app.route('/alojamento')
@@ -135,7 +166,19 @@ def reservarafael():
 
 @app.route('/user')
 def user():
-    return render_template('user.html')
+    if 'username' not in session:
+        return redirect(url_for('login'))
+
+    username = session['username']
+    with sqlite3.connect('database.db') as conn:
+        cur = conn.cursor()
+        cur.execute("SELECT id FROM users WHERE username = ?", (username,))
+        user_id = cur.fetchone()[0]
+
+        cur.execute("SELECT product_name, product_price, product_type, product_image FROM purchases WHERE user_id = ?", (user_id,))
+        purchases = cur.fetchall()
+
+    return render_template('user.html', username=username, purchases=purchases)
 
 @app.route('/logout/')
 def logout():

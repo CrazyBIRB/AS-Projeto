@@ -1,0 +1,124 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333;
+    background-color: rgb(241, 195, 152);
+  }
+
+.btn{
+    background-color: #000;
+    border-color: #000;
+    color: white;
+    width: 95%;
+    border-radius: 35px;
+}
+
+.finalizarCompra{
+    background-color: #000;
+    border-color: #000;
+    color: white;
+    width: 95%;
+    border-radius: 35px;
+}
+
+
+rounded-navbar {
+  padding-top: 1rem; /* Ajuste este valor conforme necessário */
+  padding-bottom: 1rem; /* Ajuste este valor conforme necessário */
+  height: 30vh; /* Ajuste a altura conforme necessário */
+  border-radius: 0 0 15px 15px; /* Rounded bottom corners */
+}
+
+.rounded-navbar .navbar-brand {
+  font-size: 2rem; /* Aumente o tamanho do texto da marca, se necessário */
+}
+
+.rounded-navbar .nav-link {
+  font-size: 1.2rem; /* Aumente o tamanho do texto dos links, se necessário */
+}
+  
+.p_container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 35px;
+}
+
+header {
+  background-color: #555;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.product {
+  background-color: #9e9b9b;
+  text-align: center;
+  border-radius: 35px;
+  padding: 10px 0;
+  margin: 10px 0;
+  max-width: 400px;
+}
+
+.product img {
+  width: 200px ;
+  height: 170px;
+}
+
+.price {
+  font-weight: bold;
+  margin-right: 10px;
+}
+.remove-item{
+  background-color: #b60b0b;
+  border-color: #b60b0b;
+  color: white;
+  width: 95%;
+  border-radius: 35px;
+}
+
+
+/* Estilos do carrinho de compras como barra lateral */
+#sidebar {
+  height: 100%;
+  width: 0; /* Largura inicial do sidebar é 0 */
+  position: fixed; /* Posicionamento fixo na tela */
+  z-index: 1; /* Fica acima do conteúdo da página */
+  top: 70;
+  right: 0; /* Posiciona o sidebar à direita */
+  background-color: #f1f1f1; /* Cor de fundo do sidebar */
+  overflow-x: hidden; /* Esconde o conteúdo que passar da largura do sidebar */
+  transition: 0.5s; /* Transição suave ao abrir/fechar */
+  padding-top: 60px; /* Espaço no topo */
+}
+
+/* Conteúdo do sidebar */
+#sidebar .sidebar-content {
+  padding: 8px;
+  text-align: center;
+}
+
+/* Botão para abrir o sidebar */
+#openSidebarBtn {
+  position: fixed;
+  top: 100px;
+  right: 35px;
+  background-color: #0492C2;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+/* Botão para fechar o sidebar */
+#closeSidebarBtn {
+  position: absolute;
+  top: 70;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+/* Adiciona estilos adicionais conforme necessário */
+

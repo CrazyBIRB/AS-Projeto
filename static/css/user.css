@@ -154,3 +154,46 @@ hr {
 }
 
 
+/* Estilo para o layout horizontal das compras */
+.purchase-list-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-bottom: 20px; /* Ajuste conforme necessário */
+}
+
+.purchase-list {
+    display: inline-block;
+}
+
+.purchase-item {
+    display: inline-block;
+    margin: 10px;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.purchase-item img {
+    width: 200px; /* Ajuste conforme necessário */
+    height: 200px; /* Ajuste conforme necessário */
+    display: block;
+    margin: auto;
+    object-fit: cover;
+}
+
+.purchase-item .product-type {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.purchase-item .product-details {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+}

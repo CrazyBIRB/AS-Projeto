@@ -1,37 +1,36 @@
 
 function openSidebar() {
     document.getElementById("sidebar").style.width = "250px"; // Define a largura do sidebar
-  }
+}
   
-  // Função para fechar o sidebar
-  function closeSidebar() {
+// Função para fechar o sidebar
+function closeSidebar() {
     document.getElementById("sidebar").style.width = "0"; // Define a largura do sidebar para 0
-  }
+}
   
-  // Event listeners para os botões
-  document.getElementById('openSidebarBtn').addEventListener('click', openSidebar);
-  document.getElementById('closeSidebarBtn').addEventListener('click', closeSidebar);
+// Event listeners para os botões
+document.getElementById('openSidebarBtn').addEventListener('click', openSidebar);
+document.getElementById('closeSidebarBtn').addEventListener('click', closeSidebar);
 
 
-  document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const addToCartButtons = document.querySelectorAll('.btn');
     const cartItemsList = document.getElementById('cart-items');
     let cartTotal = 0;
+    const cart = []; // Array to hold cart items
 
     addToCartButtons.forEach(button => {
         button.addEventListener('click', () => {
             const product = button.closest('.product');
             const productName = product.querySelector('h2').textContent;
             const productPrice = parseFloat(product.querySelector('.price').textContent.slice(0));
+            const productImage = product.querySelector('img').src;
 
-            // For simplicity, I'm using an array here:
-            const cartItem = { name: productName, price: productPrice };
-            // You can also add more properties like quantity, product ID, etc.
+            const cartItem = { name: productName, price: productPrice, type: "Loja", image: productImage };
+            cart.push(cartItem); // Add item to the cart array
 
-            // Update the cart total price by adding the price of the selected product
             cartTotal += productPrice;
 
-            // Display the cart item in the sidebar
             const cartItemElement = document.createElement('li');
             cartItemElement.innerHTML = `
                 ${productName} - ${productPrice.toFixed(2)} €
@@ -39,23 +38,47 @@ function openSidebar() {
             `;
             cartItemsList.appendChild(cartItemElement);
 
-            // Update the total price display
             document.getElementById('cart-total').textContent = `${cartTotal.toFixed(2)} €`;
         });
     });
 
-    // Add event listener for removing items from the cart
     cartItemsList.addEventListener('click', event => {
         if (event.target.classList.contains('remove-item')) {
             const removedItem = event.target.closest('li');
             const removedPrice = parseFloat(removedItem.textContent.split(' - ')[1].slice(0));
+            const removedItemName = removedItem.textContent.split(' - ')[0];
+
             cartTotal -= removedPrice;
 
-            // Remove the item from the cart
+            // Remove item from the cart array
+            const index = cart.findIndex(item => item.name === removedItemName && item.price === removedPrice);
+            if (index !== -1) {
+                cart.splice(index, 1);
+            }
+
             removedItem.remove();
 
-            // Update the total price display
-            document.getElementById('cart-total').textContent = `${cartTotal.toFixed(2)}€`;
+            document.getElementById('cart-total').textContent = `${cartTotal.toFixed(2)} €`;
         }
     });
+
+    // Event listener for the "Finalizar Compra" button
+    document.querySelector('.finalizarCompra').addEventListener('click', () => {
+        fetch('/finalizar_compra', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', },
+            body: JSON.stringify({ items: cart }),
+        }).then(response => {
+            if (response.ok) {
+                alert('Compra finalizada com sucesso!');
+                cart.length = 0; // Clear the cart array
+                cartItemsList.innerHTML = ''; // Clear the cart display
+                cartTotal = 0;
+                document.getElementById('cart-total').textContent = '0.00 €';
+            } else {
+                alert('Ocorreu um erro ao finalizar a compra. Tente novamente.');
+            }
+        });
+    });
 });
+
