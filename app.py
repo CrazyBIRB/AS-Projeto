@@ -87,41 +87,51 @@ def pet_sitting():
 
 @app.route('/reservajoao')
 def reservajoao():
-    return render_template('reservajoao.html')
+    return render_template('petsitting/reservajoao.html')
 
 @app.route('/reservaana')
 def reservaana():
-    return render_template('reservaana.html')
+    return render_template('petsitting/reservaana.html')
+
 @app.route('/reservacamila')
 def reservacamila():
-    return render_template('reservacamila.html')
+    return render_template('petsitting/reservacamila.html')
+
 @app.route('/reservacarlos')
 def reservacarlos():
-    return render_template('reservacarlos.html')
+    return render_template('petsitting/reservacarlos.html')
+
 @app.route('/reservafernanda')
 def reservafernanda():
-    return render_template('reservafernanda.html')
+    return render_template('petsitting/reservafernanda.html')
+
 @app.route('/reservajuliana')
 def reservajuliana():
-    return render_template('reservajuliana.html')
+    return render_template('petsitting/reservajuliana.html')
+
 @app.route('/reservalarissa')
 def reservalarissa():
-    return render_template('reservalarissa.html')
+    return render_template('petsitting/reservalarissa.html')
+
 @app.route('/reservalucas')
 def reservalucas():
-    return render_template('reservalucas.html')
+    return render_template('petsitting/reservalucas.html')
+
 @app.route('/reservamaria')
 def reservamaria():
-    return render_template('reservamaria.html')
+    return render_template('petsitting/reservamaria.html')
+
 @app.route('/reservapaulo')
 def reservapaulo():
-    return render_template('reservapaulo.html')
+    return render_template('petsitting/reservapaulo.html')
+
 @app.route('/reservapedro')
 def reservapedro():
-    return render_template('reservapedro.html')
+    return render_template('petsitting/reservapedro.html')
+
 @app.route('/reservarafael')
 def reservarafael():
-    return render_template('reservarafael.html')
+    return render_template('petsitting/reservarafael.html')
 
 @app.route('/user')
 def user():
