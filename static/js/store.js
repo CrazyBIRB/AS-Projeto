@@ -1,3 +1,17 @@
+document.getElementById('searchBox').addEventListener('input', function() {
+    var searchQuery = this.value.toLowerCase();
+    var hotelItems = document.querySelectorAll('.product');
+
+    hotelItems.forEach(function(item) {
+        var productName = item.getAttribute('data-name').toLowerCase();
+
+        if (productName.includes(searchQuery)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});
 
 function openSidebar() {
     document.getElementById("sidebar").style.width = "250px"; // Define a largura do sidebar

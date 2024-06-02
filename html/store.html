@@ -83,8 +83,17 @@
     </div>
   </div>
 
+  <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <br>
+            <input type="text" id="searchBox" class="form-control" placeholder="Procura por produtos pelo nome">
+        </div>
+    </div>
+  </div>
+
   <div class="container">
-    <section class="product">
+    <section class="product"  style="display: block;" data-name="caminha aconchegante para gatos">
       <div class="product-details">
         <img src="{{ url_for('static', filename='images/caminha.jpg') }}" alt="Caminha de Gato">
         <div>
@@ -95,7 +104,7 @@
       </div>
     </section>
     
-    <section class="product">
+    <section class="product"  style="display: block;" data-name="brinquedo interativo para cães">
       <div class="product-details">
         <img src="{{ url_for('static', filename='images/Brinquedos-Interativos-Para-Cães.jpg') }}" alt="Brinquedo para Cães">
         <div>
@@ -106,7 +115,7 @@
       </div>
     </section>
     
-    <section class="product">
+    <section class="product" style="display: block;" data-name="arranhador vertical para gatos">
       <div class="product-details">
         <img src="{{ url_for('static', filename='images/arranhador_vertical_para_gatos.jpg') }}" alt="Arranhador para Gatos">
         <div>
@@ -117,7 +126,7 @@
       </div>
     </section>
 
-    <section class="product">
+    <section class="product" style="display: block;" data-name="roupa para cães de pequeno porte">
       <div class="product-details">
         <img src="{{ url_for('static', filename='images/roupa_para_caes.jpg') }}" alt="Roupa para cães pequenos">
         <div>
@@ -128,7 +137,7 @@
       </div>
     </section>
     
-    <section class="product">
+    <section class="product" style="display: block;" data-name="osso para cães">
       <div class="product-details">
         <img src="{{ url_for('static', filename='images/osso_para_caes.jpg') }}" alt="Osso para cães">
         <div>
@@ -141,6 +150,14 @@
   </div>
     <!-- Repetir a estrutura acima para cada produto -->
     
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    &copy; 2024 HotelPets. Todos os direitos reservados.
+  </footer>
+
+
+
   <!-- Bootstrap JS and dependencies -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
