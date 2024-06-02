@@ -13,7 +13,12 @@ def init_sqlite_db():
     conn = sqlite3.connect('database.db')
     print("Opened database successfully")
 
-    conn.execute('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)')
+    conn.execute('''CREATE TABLE IF NOT EXISTS users (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT, 
+                    username TEXT,
+                    email TEXT, 
+                    password TEXT)''')
+    
     conn.execute('''CREATE TABLE IF NOT EXISTS purchases (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     user_id INTEGER,
@@ -39,34 +44,44 @@ def home():
 def register():
     if request.method == 'POST':
         username = request.form['username']
+        email = request.form['email']
         password = request.form['password']
         hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
 
         with sqlite3.connect('database.db') as conn:
             cur = conn.cursor()
-            cur.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, hashed_password))
-            conn.commit()
-            flash('You have successfully registered! Please login.', 'success')
-            return redirect(url_for('login'))
+            cur.execute("SELECT * FROM users WHERE email = ?", (email,))
+            existing_user = cur.fetchone()
+            
+            if existing_user:
+                flash('Email already exists. Please use a different email.', 'danger')
+                return redirect(url_for('register'))
+            else:
+                cur.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)", (username, email, hashed_password))
+                conn.commit()
+                flash('You have successfully registered! Please login.', 'success')
+                return redirect(url_for('login'))
     
     return render_template('register.html')
+
 
 
 # <------! Rota de login !------>
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
+        email = request.form['email']
         password = request.form['password']
 
         with sqlite3.connect('database.db') as conn:
             cur = conn.cursor()
-            cur.execute("SELECT * FROM users WHERE username = ?", (username,))
+            cur.execute("SELECT * FROM users WHERE email = ?", (email,))
             user = cur.fetchone()
             
-            if user and check_password_hash(user[2], password):
+            if user and check_password_hash(user[3], password):
                 session['logged_in'] = True
-                session['username'] = username
+                session['username'] = user[1]
+                session['email'] = user[2]
                 return redirect(url_for('home'))
             else:
                 flash('Invalid credentials. Please try again.', 'danger')

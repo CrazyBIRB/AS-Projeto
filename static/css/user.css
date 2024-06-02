@@ -197,3 +197,7 @@ hr {
     border-radius: 5px;
     margin-top: 5px;
 }
+
+input{
+    display: none;
+}

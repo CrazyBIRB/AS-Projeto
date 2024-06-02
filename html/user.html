@@ -6,6 +6,8 @@
     <title>HotelPets</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}">
 </head>
 <body>
@@ -30,6 +32,29 @@
                     <a class="nav-link" href="{{ url_for('home') }}#contact">Contato</a>
                 </li>
             </ul>
+            <ul class="navbar-nav ml-auto">
+                {% if username %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('user') }}">
+                        <i class="fas fa-user"></i>
+                        {{ username }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">
+                        <i class="fas fa-user"></i>
+                        Login     
+                    </a>
+                </li>
+            {% endif %}
+            </ul>
         </div>
     </nav>
 
@@ -43,12 +68,14 @@
                 
                 <div class="settings">
                     <br>
-                    <ul>
+                    <ul>   
+                        <label for="input-file">Mudar Foto de Perfil</label>
+                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
+                        <br>
                         <li><a href="#">Mudar Password</a></li>
                         <br>
                         <li><a href="#">Mudar Email</a></li>
                         <br>
-                        <li><a href="#">Mudar Foto de Perfil</a></li>
                     </ul>
                 </div>
                 <a href="#camaras" class="card" style="margin-top: 100px;">
@@ -68,7 +95,11 @@
                         <div class="purchase-list">
                             {% for purchase in purchases %}
                                 <div class="purchase-item">
-                                    <img src="{{ purchase[3] }}" alt="{{ purchase[0] }}">
+                                    {% if purchase[3].startswith('http://') or purchase[3].startswith('https://') %}
+                                        <img src="{{ purchase[3] }}" alt="{{ purchase[0] }}">
+                                    {% else %}
+                                        <img src="{{ purchase[3].strip('\"') }}" alt="{{ purchase[0] }}">
+                                    {% endif %}
                                     <div class="product-type">{{ purchase[2] }}</div>
                                     <div class="product-details">
                                         <div>{{ purchase[0] }}</div>

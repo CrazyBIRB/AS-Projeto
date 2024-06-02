@@ -47,4 +47,62 @@ body {
 .btn-primary:hover, .btn-success:hover {
     background-color: grey;  /* Cor de fundo cinza */
 }
+
+/* Estilos do carrinho de compras como barra lateral */
+#sidebar {
+    height: 100%;
+    width: 0; /* Largura inicial do sidebar é 0 */
+    position: fixed; /* Posicionamento fixo na tela */
+    z-index: 1; /* Fica acima do conteúdo da página */
+    top: 70;
+    right: 0; /* Posiciona o sidebar à direita */
+    background-color: #f1f1f1; /* Cor de fundo do sidebar */
+    overflow-x: hidden; /* Esconde o conteúdo que passar da largura do sidebar */
+    transition: 0.5s; /* Transição suave ao abrir/fechar */
+    padding-top: 60px; /* Espaço no topo */
+}
+
+/* Conteúdo do sidebar */
+#sidebar .sidebar-content {
+    padding: 8px;
+    text-align: center;
+}
+
+/* Botão para abrir o sidebar */
+#openSidebarBtn {
+    position: fixed;
+    top: 100px;
+    right: 35px;
+    background-color: #0492C2;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+/* Botão para fechar o sidebar */
+#closeSidebarBtn {
+    position: absolute;
+    top: 70;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+.btn{
+    background-color: #000;
+    border-color: #000;
+    color: white;
+    width: 95%;
+    border-radius: 35px;
+}
+
+.finalizarCompra{
+    background-color: #000;
+    border-color: #000;
+    color: white;
+    width: 95%;
+    border-radius: 35px;
+}
     
