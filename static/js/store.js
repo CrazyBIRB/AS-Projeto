@@ -13,18 +13,28 @@ document.getElementById('searchBox').addEventListener('input', function() {
     });
 });
 
+// Function to toggle the visibility of the "carrinho" button
+function toggleCartButtonVisibility() {
+    const cartButton = document.getElementById('openSidebarBtn');
+    cartButton.style.display = cartButton.style.display === 'none' ? 'block' : 'none';
+}
+
 function openSidebar() {
     document.getElementById("sidebar").style.width = "250px"; // Define a largura do sidebar
+    toggleCartButtonVisibility(); // Hide the "carrinho" button when sidebar opens
 }
   
 // Função para fechar o sidebar
 function closeSidebar() {
     document.getElementById("sidebar").style.width = "0"; // Define a largura do sidebar para 0
+    toggleCartButtonVisibility(); // Show the "carrinho" button when sidebar closes
 }
   
 // Event listeners para os botões
 document.getElementById('openSidebarBtn').addEventListener('click', openSidebar);
 document.getElementById('closeSidebarBtn').addEventListener('click', closeSidebar);
+// Event listener for the "fechar carrinho" button
+document.getElementById('closeSidebarBottomBtn').addEventListener('click', closeSidebar);
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -95,4 +105,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-

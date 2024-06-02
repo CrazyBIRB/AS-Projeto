@@ -59,13 +59,15 @@
   <button id="openSidebarBtn">Carrinho</button>
 
   <div id="sidebar">
-    <a href="javascript:void(0)" id="closeSidebarBtn">&times;</a> 
     <div class="sidebar-content">
       <ul id="cart-items">
         <!-- Cart items will be dynamically added here -->
       </ul>
       <p>Total: <span id="cart-total">0.00€</span></p>
-      <button class="finalizarCompra">Finalizar Compra</button>
+      <div id="sidebar-buttons">
+        <button class="btn btn-success finalizarCompra">Finalizar Compra</button>
+        <button class="btn btn-secondary" id="closeSidebarBottomBtn">Fechar Carrinho</button> <!-- New Close Cart Button -->
+      </div>
     </div>
   </div>
 
@@ -78,71 +80,79 @@
     </div>
   </div>
 
-  <div class="container">
-    <section class="product"  style="display: block;" data-name="caminha aconchegante para gatos">
-      <div class="product-details">
-        <img src="{{ url_for('static', filename='images/caminha.jpg') }}" alt="Caminha de Gato">
-        <div>
-          <h2>Caminha Aconchegante para Gatos</h2>
-          <p class="price">29.99 €</p>
-          <button class="btn">Comprar</button>
-        </div>
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4 mb-4" data-name="caminha aconchegante para gatos">
+        <section class="product">
+          <div class="product-details">
+            <img src="{{ url_for('static', filename='images/caminha.jpg') }}" alt="Caminha de Gato">
+            <div>
+              <h2>Caminha Aconchegante para Gatos</h2>
+              <p class="price">29.99 €</p>
+              <button class="btn">Comprar</button>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
-    
-    <section class="product"  style="display: block;" data-name="brinquedo interativo para cães">
-      <div class="product-details">
-        <img src="{{ url_for('static', filename='images/Brinquedos-Interativos-Para-Cães.jpg') }}" alt="Brinquedo para Cães">
-        <div>
-          <h2>Brinquedo Interativo para Cães</h2>
-          <p class="price">14.99 €</p>
-          <button class="btn">Comprar</button>
-        </div>
-      </div>
-    </section>
-    
-    <section class="product" style="display: block;" data-name="arranhador vertical para gatos">
-      <div class="product-details">
-        <img src="{{ url_for('static', filename='images/arranhador_vertical_para_gatos.jpg') }}" alt="Arranhador para Gatos">
-        <div>
-          <h2>Arranhador Vertical para Gatos</h2>
-          <p class="price">39.99 €</p>
-          <button class="btn">Comprar</button>
-        </div>
-      </div>
-    </section>
 
-    <section class="product" style="display: block;" data-name="roupa para cães de pequeno porte">
-      <div class="product-details">
-        <img src="{{ url_for('static', filename='images/roupa_para_caes.jpg') }}" alt="Roupa para cães pequenos">
-        <div>
-          <h2>Roupa para cães de pequeno porte</h2>
-          <p class="price">19.99 €</p>
-          <button class="btn">Comprar</button>
-        </div>
+      <div class="col-md-6 col-lg-4 mb-4" data-name="brinquedo interativo para cães">
+        <section class="product">
+          <div class="product-details">
+            <img src="{{ url_for('static', filename='images/Brinquedos-Interativos-Para-Cães.jpg') }}" alt="Brinquedo para Cães">
+            <div>
+              <h2>Brinquedo Interativo para Cães</h2>
+              <p class="price">14.99 €</p>
+              <button class="btn">Comprar</button>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
-    
-    <section class="product" style="display: block;" data-name="osso para cães">
-      <div class="product-details">
-        <img src="{{ url_for('static', filename='images/osso_para_caes.jpg') }}" alt="Osso para cães">
-        <div>
-          <h2>Osso para cães</h2>
-          <p class="price">9.99 €</p>
-          <button class="btn">Comprar</button>
-        </div>
+
+      <div class="col-md-6 col-lg-4 mb-4" data-name="arranhador vertical para gatos">
+        <section class="product">
+          <div class="product-details">
+            <img src="{{ url_for('static', filename='images/arranhador_vertical_para_gatos.jpg') }}" alt="Arranhador para Gatos">
+            <div>
+              <h2>Arranhador Vertical para Gatos</h2>
+              <p class="price">39.99 €</p>
+              <button class="btn">Comprar</button>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
+
+      <div class="col-md-6 col-lg-4 mb-4" data-name="roupa para cães de pequeno porte">
+        <section class="product">
+          <div class="product-details">
+            <img src="{{ url_for('static', filename='images/roupa_para_caes.jpg') }}" alt="Roupa para cães pequenos">
+            <div>
+              <h2>Roupa para cães de pequeno porte</h2>
+              <p class="price">19.99 €</p>
+              <button class="btn">Comprar</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4" data-name="osso para cães">
+        <section class="product">
+          <div class="product-details">
+            <img src="{{ url_for('static', filename='images/osso_para_caes.jpg') }}" alt="Osso para cães">
+            <div>
+              <h2>Osso para cães</h2>
+              <p class="price">9.99 €</p>
+              <button class="btn">Comprar</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
   </div>
-    <!-- Repetir a estrutura acima para cada produto -->
-    
 
   <!-- Footer -->
   <footer class="bg-dark text-white text-center py-3">
     &copy; 2024 HotelPets. Todos os direitos reservados.
   </footer>
-
-
 
   <!-- Bootstrap JS and dependencies -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
