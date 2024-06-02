@@ -32,7 +32,7 @@ function closeSidebar() {
   
 // Event listeners para os botões
 document.getElementById('openSidebarBtn').addEventListener('click', openSidebar);
-document.getElementById('closeSidebarBtn').addEventListener('click', closeSidebar);
+document.getElementById('closeSidebarBottomBtn').addEventListener('click', closeSidebar);
 // Event listener for the "fechar carrinho" button
 document.getElementById('closeSidebarBottomBtn').addEventListener('click', closeSidebar);
 
