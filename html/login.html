@@ -11,7 +11,7 @@
 <body>
         <div class="form-container">
             <div class="content">
-                <a href="index.html" class="back-arrow"><i class="fas fa-arrow-left"></i></a>
+                <a href="{{ url_for('home') }}" class="back-arrow"><i class="fas fa-arrow-left"></i></a>
                 <form id="login-form" class="form" method="POST">
                     <h2 id="option-login">Login</h2>
                     <input type="text" id="login-email" name="email" placeholder="Email" required>

@@ -12,29 +12,41 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark rounded-navbar">
         <a class="navbar-brand" href="{{ url_for('home') }}">HotelPets</a>
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ml-auto">
+                {% if username %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                    <a class="nav-link" href="{{ url_for('user') }}">
+                        <i class="fas fa-user"></i>
+                        {{ username }}
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('home') }}#services">Serviços</a>
+                    <a class="nav-link" href="{{ url_for('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
                 </li>
+            {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('home') }}#about">Sobre</a>
+                    <a class="nav-link" href="{{ url_for('login') }}">
+                        <i class="fas fa-user"></i>
+                        Login     
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('home') }}#contact">Contato</a>
-                </li>
+            {% endif %}
             </ul>
         </div>
     </nav>
+
     <div class="mt-5"></div>
+    <br>
 
     <!-- Search Box -->
     <div class="container mt-5">

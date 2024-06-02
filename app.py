@@ -119,65 +119,80 @@ def finalizar_compra():
 
 @app.route('/alojamento')
 def alojamento():
-    return render_template('alojamento.html')
+    username = session.get('username')
+    return render_template('alojamento.html', username=username)
 
 
 @app.route('/spa_salao')
 def spa_salao():
-    return render_template('spa-salao.html')
+    username = session.get('username')
+    return render_template('spa-salao.html', username=username)
 
 
 @app.route('/pet_sitting')
 def pet_sitting():
-    return render_template('pet-sitting.html')
+    username = session.get('username')
+    return render_template('pet-sitting.html', username=username)
 
 @app.route('/reservajoao')
 def reservajoao():
-    return render_template('petsitting/reservajoao.html')
+    username = session.get('username')
+    return render_template('petsitting/reservajoao.html', username=username)
 
 @app.route('/reservaana')
 def reservaana():
-    return render_template('petsitting/reservaana.html')
+    username = session.get('username')
+    return render_template('petsitting/reservaana.html', username=username)
 
 @app.route('/reservacamila')
 def reservacamila():
-    return render_template('petsitting/reservacamila.html')
+    username = session.get('username')
+    return render_template('petsitting/reservacamila.html', username=username)
 
 @app.route('/reservacarlos')
 def reservacarlos():
-    return render_template('petsitting/reservacarlos.html')
+    username = session.get('username')
+    return render_template('petsitting/reservacarlos.html', username=username)
 
 @app.route('/reservafernanda')
 def reservafernanda():
-    return render_template('petsitting/reservafernanda.html')
+    username = session.get('username')
+    return render_template('petsitting/reservafernanda.html', username=username)
 
 @app.route('/reservajuliana')
 def reservajuliana():
-    return render_template('petsitting/reservajuliana.html')
+    username = session.get('username')
+    return render_template('petsitting/reservajuliana.html', username=username)
 
 @app.route('/reservalarissa')
 def reservalarissa():
-    return render_template('petsitting/reservalarissa.html')
+    username = session.get('username')
+    return render_template('petsitting/reservalarissa.html', username=username)
 
 @app.route('/reservalucas')
 def reservalucas():
-    return render_template('petsitting/reservalucas.html')
+    username = session.get('username')
+    return render_template('petsitting/reservalucas.html', username=username)
 
 @app.route('/reservamaria')
 def reservamaria():
-    return render_template('petsitting/reservamaria.html')
+    username = session.get('username')
+    return render_template('petsitting/reservamaria.html', username=username)
 
 @app.route('/reservapaulo')
 def reservapaulo():
-    return render_template('petsitting/reservapaulo.html')
+    username = session.get('username')
+    return render_template('petsitting/reservapaulo.html', username=username)
 
 @app.route('/reservapedro')
 def reservapedro():
-    return render_template('petsitting/reservapedro.html')
+    username = session.get('username')
+    return render_template('petsitting/reservapedro.html', username=username)
 
 @app.route('/reservarafael')
 def reservarafael():
-    return render_template('petsitting/reservarafael.html')
+    username = session.get('username')
+    return render_template('petsitting/reservarafael.html', username=username)
 
 @app.route('/user')
 def user():

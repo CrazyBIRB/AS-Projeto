@@ -1,5 +1,20 @@
 body {
-    background-color: #29faf652;
+    background-color: #d4f1f4;
+}
+
+.rounded-navbar {
+    padding-top: 1rem; /* Ajuste este valor conforme necessário */
+    padding-bottom: 1rem; /* Ajuste este valor conforme necessário */
+    height: 8vh; /* Ajuste a altura conforme necessário */
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.8);
+}
+
+.rounded-navbar .navbar-brand {
+    font-size: 1.5rem; /* Aumente o tamanho do texto da marca, se necessário */
+}
+
+.rounded-navbar .nav-link {
+    font-size: 1.1rem; /* Aumente o tamanho do texto dos links, se necessário */
 }
 
 .hotel-item {
@@ -88,7 +103,7 @@ body {
 /* Botão para abrir o sidebar */
 #openSidebarBtn {
     position: fixed;
-    top: 70px;
+    top: 140px;
     right: 200px;
     background-color: #000000;
     border: none;
