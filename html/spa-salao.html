@@ -1,11 +1,271 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gridSPA.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleSPA.css') }}">s
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
+
 <body>
+<div class="page">
+<!-- NAVBAR-->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark sticky-top rounded-navbar">
+    <a class="navbar-brand" href="{{ url_for('home') }}">HotelPets</a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Serviços</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contato</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                {% if username %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('user') }}">
+                        <i class="fas fa-user"></i>
+                        {{ username }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">
+                        <i class="fas fa-user"></i>
+                        Login     
+                    </a>
+                </li>
+            {% endif %}
+            </ul>
+        </div>
+    </nav>
+<!--CONTENT-->
+<section id="content" class="content">
+
+    <div class="well-04">
+        <div class="container">
+            <h1>Salão SPA</h1>
+            <hr>
+            <div class="row">
+                <div class="grid_4">
+                    <div class="box-09">
+                        <img src="images/BANHO_CAO_3.jpg" alt="">
+                        <div class="box-09_cnt" data-equal-group="1">
+                            <h4><a>Banhos</a></h4>
+                            <p>
+                                Lavagem com o shampoo adequado ao tipo de pelo do cão.
+                            </p>
+                            <p>
+                                Inclui:
+                            </p>
+                            <ul class="list">
+                                <li><a>Massagem</a></li>
+                                <li><a>Secagem</a></li>
+                                <li><a>Escovagem</a></li>
+                                <li><a>Limpeza Ouvidos</a></li>
+                                <li><a>Corte Unhas</a></li>
+                                <li><a>Aplicação de Perfume</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid_4">
+                    <div class="box-09">
+                        <img src="images/dog-grooming1.jpg" alt="">
+                        <div class="box-09_cnt" data-equal-group="1">
+                            <h4><a>Grooming</a></h4>
+                            <p>
+                                Groomimg é a área que trata da estética canina e felina, mas sempre conjugando isso com o bem-estar dos nossos patudos. No HotelPets trabalhamos para atingir o padrão estético do seu amigo.
+                            </p>
+                            <ul class="list">
+                                <li><a>Corte de raça</a></li>
+                                <li><a>Stripping</a></li>
+                                <li><a>Corte à tesoura</a></li>
+                                <li><a>Tosquias Higiénicas</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid_4">
+                    <div class="box-09">
+                        <img src="images/hidro_img.jpg" alt="">
+                        <div class="box-09_cnt" data-equal-group="1">
+                            <h4><a>Hidroterapia</a></h4>
+                            <p>
+                                A hidroterapia tem como objetivo estimular o sistema circulatório do seu cão.
+                            </p>                            
+                            <ul class="list">
+                                <li><a>Hidroterapia</a></li>
+                                <li><a>Apoio de profissionais certificados</a></li>
+                            </ul>                            
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax">
+        <div class="container">
+            <div class="box-06">
+                <div class="box-06_cnt box-06_cnt-2">
+                    <h2>Ofertas Especiais</h2>
+                    <p>
+                        Venha visitar-nos e veja as ofertas e serviços que temos disponiveis no nosso salão
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="well-04">
+        <div class="container">
+            <h4>Serviços complementares</h4>
+            <hr>
+            <div class="row">
+                <div class="grid_4">
+                    <div class="box-09">
+                        <img src="images/Dog-Shampoo1.png" alt="">
+                        <div class="box-09_cnt" data-equal-group="2">
+                            <h4><a>Acessórios</a></h4>
+                            <p>
+                                Temos na nossa loja uma grande variedade de produtos de higiéne e acessórios.
+                            </p>
+                            <ul class="list">
+                                <li><a>Perfumes</a></li>
+                                <li><a>Shampoos</a></li>
+                                <li><a>Trelas</a></li>
+                                <li><a>Peitorais</a></li>
+                                <li><a>Vestuário</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid_4">
+                    <div class="box-09">
+                        <img src="images/petBook_1.jpg" alt="">
+                        <div class="box-09_cnt" data-equal-group="2">
+                            <h4><a>Pet Books</a></h4>
+                            <p>
+                                Sessões fotográficas e produçao de livros para recordar com todo o glamour que a sua estrela merece.
+                            </p>
+                            <ul class="list">
+                                <li><a>Fotógrafo especializado</a></li>
+                                <li><a>Maquilhagem</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid_4">
+                    <div class="box-09">
+                        <img src="images/dogs_Dom.jpg" alt="">
+                        <div class="box-09_cnt" data-equal-group="2">
+                            <h4><a>Serviço ao domicilio</a></h4>
+                            <p>Podemos trazer e levar o seu amigo. Serviço de comodidade a pensar nas pessoas com menos mobilidade ou que não tenham forma de levar os seus animais.</p>
+                            <ul class="list">
+                                <li>
+                                    <a>Recolha e entrega ao domicilio</a>
+                                </li>
+                                <li>
+                                    <a>Levamos ao veterinário em caso de necessidade</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="bg-wrap">
     
+    <div class="well-04">
+        <div class="container">
+            <h4>Serviços Adicionais</h4>
+            <hr class="well-04_hr01">
+            <div class="row">
+                <div class="grid_4">
+                    <div class="box-09">
+                        <img src="images/page-3_img07.jpg" alt="">
+                        <div class="box-09_cnt box-09_padbot01 cnt-bg05">
+                            <h4><a>Massagens</a></h4>
+                            <p class="price">Relaxamento</p>
+                            <p>
+                                Massagens de relaxamento que vão deixar nas nuvens os nossos amigos patudos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid_4">
+                    <div class="box-09">
+                        <img src="images/page-3_img08.jpg" alt="">
+                        <div class="box-09_cnt box-09_padbot01 cnt-bg05">
+                            <h4><a>Corte unhas</a></h4>
+                            <p class="price">Queremos o melhor para eles</p>
+                            <p>
+                                As unhas do seu animal de estimação devem ser cortadas uma vez por mês ou a cada 2 ou 3 semanas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid_4">
+                    <div class="box-09">
+                        <img src="images/page-3_img09.jpg" alt="">
+                        <div class="box-09_cnt box-09_padbot01 cnt-bg05">
+                            <h4><a>Limpeza orelhas</a></h4>
+                            <p class="price">Para evitar complicações</p>
+                            <p>Não deixe que a cera se acumule e provoque depois otites e inflamações.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact" class="mt-5 pt-5">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title"><strong>Contactos</strong></h3><br>
+                <p class="card-text">Precisa de ajuda? Entre em contacto connosco através dos seguintes meios:</p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-envelope"></i> Email: support@hotelpets.com</li>
+                    <li><i class="fas fa-phone"></i> Telefone: +351 123 456 789</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Endereço: Rua dos Pets, nº 123, Lisboa, Portugal</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    </section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+    &copy; 2024 HotelPets. Todos os direitos reservados.
+</footer>
+</div>
+
+</script>
 </body>
 </html>
