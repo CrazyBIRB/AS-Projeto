@@ -49,57 +49,142 @@
     <!-- Pet Hotels List -->
     <div class="container mt-4" id="hotelsList">
         <div class="row">
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-4 hotel-item-container">
                 <div class="hotel-item" data-name="Petotel" data-location="Aveiro" style="background-image: url('{{ url_for('static', filename='images/petotel.jpg') }}');">
                     <div class="card">
                         <div class="card-body text-white">
                             <h5 class="card-title">Petotel</h5>
                             <p class="card-text">Location: Aveiro</p>
                             <a href="#" class="btn btn-primary">Reserve</a>
+                            <br><br>
+                            <p class="card-text">Rating: 4.1</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="hotel-item" data-name="Petotel 2" data-location="Esgueira" style="background-image: url('{{ url_for('static', filename='images/hotel2.jpg') }}');">
+            <div class="col-md-4 mb-4 hotel-item-container">
+                <div class="hotel-item" data-name="Petotel 2" data-location="Esgueira" style="background-image: url('{{ url_for('static', filename='images/petotel2.jpg') }}');">
                     <div class="card">
                         <div class="card-body text-white">
                             <h5 class="card-title">Petotel 2</h5>
-                            <p class="card-text">Location: Esgueira</p>
+                            <p class="card-text">Location: Braga</p>
                             <a href="#" class="btn btn-primary">Reserve</a>
+                            <br><br>
+                            <p class="card-text">Rating: 4.3</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Add more hotels here -->
-            <div class="col-md-4 mb-4">
-                <div class="hotel-item" data-name="Animal House" data-location="Lisboa" style="background-image: url('{{ url_for('static', filename='images/hotel3.jpg') }}');">
+            <div class="col-md-4 mb-4 hotel-item-container">
+                <div class="hotel-item" data-name="Animal House" data-location="Lisboa" style="background-image: url('{{ url_for('static', filename='images/animalhouse.jpeg') }}');">
                     <div class="card">
                         <div class="card-body text-white">
                             <h5 class="card-title">Animal House</h5>
                             <p class="card-text">Location: Lisboa</p>
                             <a href="#" class="btn btn-primary">Reserve</a>
+                            <br><br>
+                            <p class="card-text">Rating: 4.0</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="hotel-item" data-name="Pet Paradise" data-location="Porto" style="background-image: url('{{ url_for('static', filename='images/hotel4.jpg') }}');">
+                <div class="hotel-item" data-name="Hotel Patinhas" data-location="Aveiro" style="background-image: url('{{ url_for('static', filename='images/hotelpatinhas.jpg') }}');">
                     <div class="card">
                         <div class="card-body text-white">
-                            <h5 class="card-title">Pet Paradise</h5>
-                            <p class="card-text">Location: Porto</p>
+                            <h5 class="card-title">Hotel Patinhas</h5>
+                            <p class="card-text">Location: Aveiro</p>
                             <a href="#" class="btn btn-primary">Reserve</a>
+                            <br><br>
+                            <p class="card-text">Rating: 4.1</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Repeat similar blocks for more hotels -->
+            <div class="col-md-4 mb-4">
+                <div class="hotel-item" data-name="Pousada Pet" data-location="Porto" style="background-image: url('{{ url_for('static', filename='images/pousadapet.png') }}');">
+                    <div class="card">
+                        <div class="card-body text-white">
+                            <h5 class="card-title">Pousada Pet</h5>
+                            <p class="card-text">Location: Porto</p>
+                            <a href="#" class="btn btn-primary">Reserve</a>
+                            <br><br>
+                            <p class="card-text">Rating: 3.8</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="hotel-item" data-name="Vila Pet" data-location="Lisboa" style="background-image: url('{{ url_for('static', filename='images/vilapet.png') }}');">
+                    <div class="card">
+                        <div class="card-body text-white">
+                            <h5 class="card-title">Vila Pet</h5>
+                            <p class="card-text">Location: Lisboa</p>
+                            <a href="#" class="btn btn-primary">Reserve</a>
+                            <br><br>
+                            <p class="card-text">Rating: 4.5</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="hotel-item" data-name="Mundo Animal" data-location="Algarve" style="background-image: url('{{ url_for('static', filename='images/mundoanimal.jpg') }}');">
+                    <div class="card">
+                        <div class="card-body text-white">
+                            <h5 class="card-title">Mundo Animal</h5>
+                            <p class="card-text">Location: Algarve</p>
+                            <a href="#" class="btn btn-primary">Reserve</a>
+                            <br><br>
+                            <p class="card-text">Rating: 4.7</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="hotel-item" data-name="Hotel dos Bichos" data-location="Aveiro" style="background-image: url('{{ url_for('static', filename='images/hoteldosbichos.jpg') }}');">
+                    <div class="card">
+                        <div class="card-body text-white">
+                            <h5 class="card-title">Hotel dos Bichos</h5>
+                            <p class="card-text">Location: Aveiro</p>
+                            <a href="#" class="btn btn-primary">Reserve</a>
+                            <br><br>
+                            <p class="card-text">Rating: 3.7</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="hotel-item" data-name="Pet Place" data-location="Lisboa" style="background-image: url('{{ url_for('static', filename='images/petplace.jpeg') }}');">
+                    <div class="card">
+                        <div class="card-body text-white">
+                            <h5 class="card-title">Pet Place</h5>
+                            <p class="card-text">Location: Lisboa</p>
+                            <a href="#" class="btn btn-primary">Reserve</a>
+                            <br><br>
+                            <p class="card-text">Rating: 4.0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="hotel-item" data-name="Happy Pet" data-location="Leiria" style="background-image: url('{{ url_for('static', filename='images/happypet.jpg') }}');">
+                    <div class="card">
+                        <div class="card-body text-white">
+                            <h5 class="card-title">Happy Pet</h5>
+                            <p class="card-text">Location: Leiria</p>
+                            <a href="#" class="btn btn-primary">Reserve</a>
+                            <br><br>
+                            <p class="card-text">Rating: 4.2</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more hotels similarly -->
         </div>
     </div>
 
     <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="{{ url_for('static', filename='js/alojamento.js') }}"></script>
