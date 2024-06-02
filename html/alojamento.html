@@ -49,15 +49,18 @@
     <!-- Botão para abrir o sidebar -->
     <button id="openSidebarBtn">Carrinho</button>
 
-    <div id="sidebar" style="width: 0; position: fixed; top: 0; right: 0; height: 100%; background-color: white; overflow-x: hidden; transition: 0.5s;">
+    <div id="sidebar" style="width: 0; position: fixed; top: 0; right: 0; height: 100%; overflow-x: hidden; transition: 0.5s;">
         <a href="javascript:void(0)" id="closeSidebarBtn" style="position: absolute; top: 10px; right: 25px; font-size: 36px;">&times;</a>
         <div class="sidebar-content p-3">
             <ul id="cart-items" class="list-unstyled">
                 <!-- Cart items will be dynamically added here -->
             </ul>
-            <p>Total: <span id="cart-total">0.00€</span></p>
-            <button class="btn btn-success finalizarCompra">Finalizar Compra</button>
-        </div>
+<p>Total: <span id="cart-total">0.00€</span></p>
+<div id="sidebar-buttons">
+    <button class="btn btn-success finalizarCompra">Finalizar Compra</button>
+    <button class="btn btn-secondary" id="closeSidebarBottomBtn">Fechar Carrinho</button> <!-- New Close Cart Button -->
+</div>
+</div>
     </div>
 
     <!-- Pet Hotels List -->
@@ -201,5 +204,3 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="{{ url_for('static', filename='js/alojamento.js') }}"></script>
-</body>
-</html>

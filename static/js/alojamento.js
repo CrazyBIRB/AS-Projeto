@@ -15,17 +15,16 @@ document.getElementById('searchBox').addEventListener('input', function() {
 });
 
 function openSidebar() {
-    document.getElementById("sidebar").style.width = "250px"; // Define a largura do sidebar
+    document.getElementById("sidebar").style.width = "250px"; // Define the width of the sidebar
 }
   
-// Função para fechar o sidebar
 function closeSidebar() {
-    document.getElementById("sidebar").style.width = "0"; // Define a largura do sidebar para 0
+    document.getElementById("sidebar").style.width = "0"; // Set the width of the sidebar to 0
 }
   
-// Event listeners para os botões
 document.getElementById('openSidebarBtn').addEventListener('click', openSidebar);
 document.getElementById('closeSidebarBtn').addEventListener('click', closeSidebar);
+document.getElementById('closeSidebarBottomBtn').addEventListener('click', closeSidebar);
 
 document.addEventListener('DOMContentLoaded', () => {
     const addToCartButtons = document.querySelectorAll('.reserve-btn');
@@ -41,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const hotelLocation = hotelItem.querySelector('.card-text').textContent.split(': ')[1];
             const hotelPriceText = hotelItem.querySelector('.price').textContent;
             const hotelPrice = parseFloat(hotelPriceText.match(/Price: (\d+\.\d+)/)[1]);
-            const hotelImage = hotelItem.style.backgroundImage.replace('url(', '').replace(')', ''); //
+            const hotelImage = hotelItem.style.backgroundImage.replace('url("', '').replace('")', ''); // Correctly extracting the image URL
 
             const cartItem = { name: hotelName, price: hotelPrice, type: "Alojamento", image: hotelImage };
             cart.push(cartItem); // Add item to the cart array
@@ -98,3 +97,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+function openSidebar() {
+    document.getElementById("sidebar").style.width = "250px"; // Define the width of the sidebar
+    document.getElementById("openSidebarBtn").style.display = "none"; // Hide the "Carrinho" button
+}
+  
+function closeSidebar() {
+    document.getElementById("sidebar").style.width = "0"; // Set the width of the sidebar to 0
+    document.getElementById("openSidebarBtn").style.display = "block"; // Show the "Carrinho" button
+}

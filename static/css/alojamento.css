@@ -1,5 +1,5 @@
 body {
-    background-color: #0c6580b9;
+    background-color: #29faf652;
 }
 
 .hotel-item {
@@ -56,28 +56,46 @@ body {
     z-index: 1; /* Fica acima do conteúdo da página */
     top: 70;
     right: 0; /* Posiciona o sidebar à direita */
-    background-color: #f1f1f1; /* Cor de fundo do sidebar */
+    background-color: #90f5f5; /* Cor de fundo do sidebar */
     overflow-x: hidden; /* Esconde o conteúdo que passar da largura do sidebar */
     transition: 0.5s; /* Transição suave ao abrir/fechar */
     padding-top: 60px; /* Espaço no topo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
 }
 
-/* Conteúdo do sidebar */
 #sidebar .sidebar-content {
     padding: 8px;
     text-align: center;
+    height: calc(100% - 80px); /* Make space for the buttons */
+    overflow-y: auto; /* Make content scrollable if it overflows */
 }
+
+#sidebar-buttons {
+    position: absolute;
+    bottom: 20px; /* Adjust as necessary for spacing */
+    width: 100%;
+    text-align: center;
+    padding: 0 20px; /* Adjust padding as necessary */
+}
+
+#sidebar-buttons .btn {
+    width: 100%;
+    margin-bottom: 10px; /* Space between buttons */
+}
+
 
 /* Botão para abrir o sidebar */
 #openSidebarBtn {
     position: fixed;
-    top: 100px;
-    right: 35px;
-    background-color: #0492C2;
+    top: 70px;
+    right: 200px;
+    background-color: #000000;
     border: none;
     color: white;
     padding: 10px 15px;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 /* Botão para fechar o sidebar */
