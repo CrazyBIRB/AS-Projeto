@@ -79,7 +79,7 @@ def login():
             user = cur.fetchone()
             
             if user and check_password_hash(user[3], password):
-                session['logged_in'] = True
+                session['logged_in'] = True  # Setting 'logged_in' instead of 'username'
                 session['username'] = user[1]
                 session['email'] = user[2]
                 return redirect(url_for('home'))
@@ -89,16 +89,10 @@ def login():
     return render_template('login.html')
 
 
-@app.route('/store')
-def store():
-    username = session.get('username')
-    return render_template('store.html', username=username)
-
-
 @app.route('/finalizar_compra', methods=['POST'])
 def finalizar_compra():
-    if 'username' not in session:
-        return redirect(url_for('login'))
+    if 'logged_in' not in session:  # Checking for 'logged_in' instead of 'username'
+        return redirect(url_for('login')), 400
 
     data = request.get_json()
     items = data['items']
@@ -115,6 +109,12 @@ def finalizar_compra():
         conn.commit()
 
     return '', 200
+
+
+@app.route('/store')
+def store():
+    username = session.get('username')
+    return render_template('store.html', username=username)
 
 
 @app.route('/alojamento')

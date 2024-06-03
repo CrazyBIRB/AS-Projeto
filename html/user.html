@@ -13,25 +13,11 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark sticky-top rounded-navbar">
-        <a class="navbar-brand" href="#">HotelPets</a>
+        <a class="navbar-brand" href="{{ url_for('home') }}">HotelPets</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('home') }}#services">Serviços</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('home') }}#about">Sobre</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('home') }}#contact">Contato</a>
-                </li>
-            </ul>
             <ul class="navbar-nav ml-auto">
                 {% if username %}
                 <li class="nav-item">
@@ -46,14 +32,14 @@
                         Logout
                     </a>
                 </li>
-            {% else %}
+                {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('login') }}">
                         <i class="fas fa-user"></i>
                         Login     
                     </a>
                 </li>
-            {% endif %}
+                {% endif %}
             </ul>
         </div>
     </nav>
@@ -68,22 +54,27 @@
                 
                 <div class="settings">
                     <br>
-                    <ul>   
+                    <center>
+                    <ul> 
+                        <br>  
                         <label for="input-file">Mudar Foto de Perfil</label>
                         <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
                         <br>
-                        <li><a href="#">Mudar Password</a></li>
+                        <label for="input-password">Mudar Password</label>
+                        <input id="input-password">
                         <br>
-                        <li><a href="#">Mudar Email</a></li>
+                        <label for="input-email">Mudar Email</label>
+                        <input id="input-email">
                         <br>
                     </ul>
+                    </center>
                 </div>
-                <a href="#camaras" class="card" style="margin-top: 100px;">
+                <div class="card" style="margin-top: 100px;" onclick="showAlert()">
                     <img src="{{ url_for('static', filename='images/camaras.jpg') }}" class="card-img-top" alt="Câmaras">
                     <div class="card-body">
                         Câmaras
                     </div>
-                </a>
+                </div>
             </div>
 
             <!-- Main Content -->
@@ -132,5 +123,17 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            $("#profile-toggle").click(function () {
+                $("#profile-settings").slideToggle();
+            });
+        });
+
+        function showAlert() {
+            alert('No active reserves!');
+        }
+    </script>
 </body>
 </html>

@@ -3,3 +3,7 @@ $(document).ready(function () {
         $("#profile-settings").slideToggle();
     });
 });
+
+function showAlert() {
+    alert('No active reserves!');
+}
