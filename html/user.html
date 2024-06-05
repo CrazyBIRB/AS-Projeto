@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HotelPets</title>
     <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Font Awesome CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}">
 </head>
 <body>
@@ -36,7 +36,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('login') }}">
                         <i class="fas fa-user"></i>
-                        Login     
+                        Login
                     </a>
                 </li>
                 {% endif %}
@@ -51,12 +51,11 @@
                 <div class="text-center profile-picture rounded-circle">
                     <img src="{{ url_for('static', filename='images/profilepicture.jpg') }}" alt="Profile Picture">
                 </div>
-                
                 <div class="settings">
                     <br>
                     <center>
-                    <ul> 
-                        <br>  
+                    <ul>
+                        <br>
                         <label for="input-file">Mudar Foto de Perfil</label>
                         <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
                         <br>
@@ -69,12 +68,12 @@
                     </ul>
                     </center>
                 </div>
-                <div class="card" style="margin-top: 100px;" onclick="showAlert()">
+                <a href="{{ url_for('camaras') }}" class="card" style="margin-top: 100px;">
                     <img src="{{ url_for('static', filename='images/camaras.jpg') }}" class="card-img-top" alt="Câmaras">
                     <div class="card-body">
                         Câmaras
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Main Content -->
@@ -96,6 +95,7 @@
                                         <div>{{ purchase[0] }}</div>
                                         <div>{{ purchase[1] }} €</div>
                                     </div>
+                                    <button class="btn btn-danger btn-sm cancel-btn" data-purchase-id="{{ purchase[4] }}">Cancelar</button>
                                 </div>
                             {% endfor %}
                         </div>
@@ -123,17 +123,23 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+    <script src="{{ url_for('static', filename='/js/user.js') }}"></script>
+
+    <!-- JavaScript para confirmação de cancelamento -->
     <script>
-        $(document).ready(function () {
-            $("#profile-toggle").click(function () {
-                $("#profile-settings").slideToggle();
+        document.addEventListener('DOMContentLoaded', function() {
+            const cancelButtons = document.querySelectorAll('.cancel-btn');
+            cancelButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    const purchaseId = this.getAttribute('data-purchase-id');
+                    if (confirm('Tem certeza que deseja cancelar esta compra?')) {
+                        // Simulação de envio de solicitação de cancelamento para o backend
+                        alert('Compra ' + purchaseId + ' cancelada.');
+                        // Aqui você pode fazer uma solicitação AJAX para cancelar a compra no servidor
+                    }
+                });
             });
         });
-
-        function showAlert() {
-            alert('No active reserves!');
-        }
     </script>
 </body>
 </html>

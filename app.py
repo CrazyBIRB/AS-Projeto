@@ -194,6 +194,10 @@ def reservarafael():
     username = session.get('username')
     return render_template('petsitting/reservarafael.html', username=username)
 
+@app.route('/camaras')
+def camaras():
+    return render_template('camaras.html')
+
 @app.route('/user')
 def user():
     if 'username' not in session:
@@ -218,3 +222,18 @@ def logout():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+@app.route('/cancel_purchase', methods=['POST'])
+def cancel_purchase():
+    purchase_id = request.form['purchase_id']
+    
+    # Lógica para cancelar a compra com base no purchase_id
+    
+    # Se o cancelamento for bem-sucedido
+    return jsonify({'success': True})
+    
+    # Se ocorrer um erro durante o cancelamento
+    return jsonify({'success': False, 'error': 'Erro ao cancelar a compra'}), 500
+
